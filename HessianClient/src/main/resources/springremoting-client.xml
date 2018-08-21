@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd ">
+    <!-- hessian -->
+    <bean id="hessianUserSer"
+          class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl">
+            <value>http://192.168.1.187:8080/HessianServer/hessian/hessianUserService</value>
+        </property>
+        <property name="serviceInterface">
+            <value>com.axing.service.UserService</value>
+        </property>
+        <property name="connectTimeout">
+            <value>2000</value>
+        </property>
+        <property name="readTimeout">
+            <value>4000</value>
+        </property>
+        <property name="overloadEnabled" value="true"/>
+    </bean>
+</beans>
